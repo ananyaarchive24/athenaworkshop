@@ -1,0 +1,31 @@
+/* Dashboard Grid - SIMPLIFIED */
+.dashboard {
+  height: 100vh;
+  padding: 20px;
+  background-color: #0A0A0F; /* Using direct color for now */
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 500px; /* Fixed height for testing */
+  border: 2px solid blue; /* Test border */
+}
+
+.left-column {
+  border: 2px solid green; /* Test border */
+}
+
+.right-column {
+  border: 2px solid yellow; /* Test border */
+}
+/* Make text visible */
+.dashboard {
+  color: white; /* Temporary - make all text white */
+}
+
+/* Ensure components are visible */
+.left-column, .right-column {
+  min-height: 100px; /* Give them some height */
+}
