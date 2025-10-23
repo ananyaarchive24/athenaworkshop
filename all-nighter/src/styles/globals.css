@@ -1,28 +1,23 @@
-/* Dashboard Grid - SIMPLIFIED */
+/* Dashboard Grid */
 .dashboard {
   height: 100vh;
-  padding: 20px;
   background-color: #0A0A0F; /* Using direct color for now */
+  color: white;
+
 }
 
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  height: 500px; /* Fixed height for testing */
-  border: 2px solid blue; /* Test border */
+  padding: 20px ;
 }
 
-.left-column {
-  border: 2px solid green; /* Test border */
-}
-
-.right-column {
-  border: 2px solid yellow; /* Test border */
-}
-/* Make text visible */
-.dashboard {
-  color: white; /* Temporary - make all text white */
+/* for breathing space btw all the components */
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
 }
 
 /* Ensure components are visible */
@@ -37,7 +32,7 @@
   min-height: 150px;
 }
 
-/* Guide window that expands */
+/* the guide windows that expands */
 .guide-modal {
   position: fixed;
   top: 0;
@@ -72,4 +67,347 @@
   padding: 20px;
   max-height: 60vh;
   overflow-y: auto;
+}
+
+/* FIX: Make guides look like cards in a grid */
+.guides-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2x2 grid */
+  gap: 15px;
+}
+
+.guide-item {
+  background: var(--bg-secondary); /* Card background */
+  border-radius: 12px; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.guide-header {
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.guide-header:hover {
+  background: rgba(255, 255, 255, 0.05); /* Hover glow */
+}
+
+
+.guides-widget h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+}
+
+
+
+/* basic grid for the embedded playlists */
+.playlist-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  height: fit-content;
+}
+
+.playlist-item {
+  min-width: 300px;
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+}
+
+
+/* to do list to make it less ugly */
+.todo-widget h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 12px 15px;
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.task-input input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+.task-input button {
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.task-input button:hover {
+  background: #0088cc;
+  transform: translateY(-1px);
+}
+
+/* Tasks List */
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.task:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Checkbox */
+.task input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.task span {
+  flex: 1;
+  font-size: 14px;
+}
+
+.task span.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task button {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task button:hover {
+  color: var(--accent-crimson);
+  border-color: var(--accent-crimson);
+}
+
+/* activity log css */
+
+
+.activitylog-header{
+  font-size: 1.3rem;
+
+}
+
+.activitylog-header {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
+/* Energy Drinks - Cool Counter */
+.log-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-tertiary);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.log-label {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.drink-counter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.drink-counter button {
+  background: var(--accent-blue);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.drink-counter button:hover {
+  transform: scale(1.1);
+  background: #0088cc;
+}
+
+.drink-counter button:active {
+  transform: scale(0.95);
+}
+
+.count {
+  font-size: 24px;
+  font-weight: bold;
+  min-width: 50px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Animation when number changes */
+.count.pulse {
+  animation: pulseGlow 0.6s ease;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); color: var(--accent-blue); }
+  100% { transform: scale(1); }
+}
+
+
+/*timer*/
+.timer-widget {
+  text-align: center;
+}
+
+.timer-widget h3 {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.timer-display {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 25px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.timer-controls button {
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timer-controls button:hover {
+  background: #0088cc;
+  transform: scale(1.05);
+}
+
+/* time */
+.time-widget h3 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.time-display {
+  font-size: 2.5rem;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+}
+
+/* everuthing is its own mini dashboard */
+
+
+.activity-log { 
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guides-widget{
+
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-panel{
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 300px; /* ← ADD THIS */
+  overflow: hidden; /* ← ADD THIS */
+
+}
+
+.todo-widget{
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.time-widget{
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
+}
+
+.timer-widget{
+    background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
 }

@@ -3,14 +3,20 @@ import React, { useState } from 'react';
 function ActivityLog(){
     //energy drinks
   const [energyDrinks, setEnergyDrinks] = useState(0); //these are energy drink counters
+  const [isPulsing, setIsPulsing] = useState(false); 
 
   const increaseDrinks = () => {
     setEnergyDrinks(energyDrinks + 1);
+    setIsPulsing(true);
+    setTimeout(() => setIsPulsing(false), 600);
   };
 
   const decreaseDrinks = () => {
     if (energyDrinks > 0) {
       setEnergyDrinks(energyDrinks - 1);
+      setIsPulsing(true); 
+      setTimeout(() => setIsPulsing(false), 600); 
+
     }
   };
 
@@ -27,13 +33,13 @@ function ActivityLog(){
 
 return(
     <div className="activity-log">
-      <h1>How it's going - your log</h1>
+      <h1 className="activitylog-header">How it's going - your log</h1>
       
       <div className="log-item">
         <div className="log-label">Energy Drinks:</div>
         <div className="drink-counter">
           <button onClick={decreaseDrinks}>-</button>
-          <span className="count">{energyDrinks}</span>
+            <span className={`count ${isPulsing ? 'pulse' : ''}`}>{energyDrinks}</span>
           <button onClick={increaseDrinks}>+</button>
         </div>
       </div>
