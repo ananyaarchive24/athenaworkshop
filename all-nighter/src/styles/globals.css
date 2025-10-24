@@ -1,9 +1,49 @@
+:root {
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #121218;
+  --bg-tertiary: #1A1A23;
+  --text-primary: #E0E0F0;
+  --text-secondary: #8C8CA1;
+  --accent-blue: #00A3FF;
+  --accent-green: #00FF88;
+  --accent-purple: #AA00FF;
+  --accent-amber: #FFB300;
+  --accent-crimson: #FF1744;
+}
+
+/* CYBERPUNK THEME VARIABLES */
+.theme-cyberpunk {
+  /* Cyberpunk Neon Colors */
+  --accent-blue: #00FF88;       /* Matrix Green */
+  --accent-green: #00FF88;      /* Same green for consistency */
+  --accent-purple: #AA00FF;     /* Electric Purple */
+  --accent-amber: #FFB300;      /* Warning Amber */
+  --accent-crimson: #FF1744;    /* Error Red */
+  
+  /* Backgrounds - Dark with blue undertone */
+  --bg-primary: #0A0F1A;
+  --bg-secondary: #121A2A; 
+  --bg-tertiary: #1A243A;
+  
+  /* Text */
+  --text-primary: #E0FFEE;
+  --text-secondary: #88CCAA;
+  
+  /* Glow Effects */
+  --accent-glow: rgba(0, 255, 136, 0.6);
+  --border-glow: rgba(0, 255, 136, 0.3);
+  --theme-color: #00FF88; /* For theme switcher */
+}
+
 /* Dashboard Grid */
 .dashboard {
-  height: 100vh;
-  background-color: #0A0A0F; /* Using direct color for now */
-  color: white;
+  background-color: var(--bg-primary); /* Using CSS variable now */
+  color: var(--text-primary); /* Using CSS variable now */
+}
 
+.main-header{
+  text-align: center;
+  padding: 12px;
 }
 
 .dashboard-grid {
@@ -20,14 +60,13 @@
   gap: 20px; 
 }
 
-/* Ensure components are visible */
 .left-column, .right-column {
-  min-height: 100px; /* Give them some height */
+  min-height: 100px; 
 }
 
 .widgets-row { /*to make the timer and time appear next to eo */
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   min-height: 150px;
 }
@@ -51,7 +90,7 @@
   width: 80%;
   max-width: 600px;
   border-radius: 12px;
-  border: 1px solid var(--accent-blue);
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
   box-shadow: 0 0 30px rgba(0, 163, 255, 0.4);
 }
 
@@ -103,24 +142,65 @@
 
 
 /* basic grid for the embedded playlists */
-.playlist-grid {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  height: fit-content;
-}
-
-.playlist-item {
-  min-width: 300px;
-  flex-shrink: 0;
+.music-panel {
   background: var(--bg-secondary);
   border-radius: 12px;
-  padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  height: 100%;
+  padding: 20px;
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
 }
 
+.playlist-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.arrow-btn {
+  background: var(--bg-tertiary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.playlist-display {
+  flex: 1;
+  text-align: center;
+}
+
+.playlist-display iframe {
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: var(--accent-blue);
+  transform: scale(1.2);
+}
 
 /* to do list to make it less ugly */
 .todo-widget h3 {
@@ -306,7 +386,7 @@
 }
 
 .timer-widget h3 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.1rem;
   color: var(--text-secondary);
   font-weight: 500;
@@ -315,14 +395,14 @@
 .timer-display {
   font-size: 3rem;
   font-weight: 300;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-variant-numeric: tabular-nums;
   letter-spacing: 2px;
 }
 
 .timer-controls {
   display: flex;
-  gap: 12px;
+  gap: 7px;
   justify-content: center;
 }
 
@@ -331,7 +411,7 @@
   color: white;
   border: none;
   border-radius: 12px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -344,18 +424,14 @@
 }
 
 /* time */
-.time-widget h3 {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
+
 
 .time-display {
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 4.5rem;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
   letter-spacing: 1px;
+  margin-top: 27px;
 }
 
 /* everuthing is its own mini dashboard */
@@ -365,49 +441,101 @@
   background: var(--bg-secondary);
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
 }
 
 .guides-widget{
-
   background: var(--bg-secondary);
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
 }
 
-.music-panel{
+
+
+.todo-widget {
   background: var(--bg-secondary);
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  max-height: 300px; /* ← ADD THIS */
-  overflow: hidden; /* ← ADD THIS */
-
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
+  min-height: 375px;
+  max-height: 375px
 }
 
-.todo-widget{
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
+.tasks:empty::after {
+  content: "Add tasks to begin your mission";
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 40px 20px;
+  display: block;
 }
-
 
 
 .time-widget{
   background: var(--bg-secondary);
   border-radius: 12px;
   padding: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
+  text-align: center
 }
 
 .timer-widget{
-    background: var(--bg-secondary);
-  border-radius: 12px;
-  padding: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid var(--text-primary); /* Using CSS variable now */
 }
+
+/* theme 2*/
+/* Cyberpunk Glow Effects */
+.theme-cyberpunk .timer-widget,
+.theme-cyberpunk .time-widget,
+.theme-cyberpunk .activity-log,
+.theme-cyberpunk .guides-widget,
+.theme-cyberpunk .music-panel,
+.theme-cyberpunk .todo-widget {
+  border: 1px solid var(--border-glow);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.theme-cyberpunk .timer-controls button,
+.theme-cyberpunk .task-input button,
+.theme-cyberpunk .drink-counter button {
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.theme-cyberpunk .guide-header:hover {
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--theme-color);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-btn.active {
+  background: var(--theme-color);
+  color: var(--bg-primary);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+

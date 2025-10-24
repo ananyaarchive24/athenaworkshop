@@ -36,6 +36,8 @@ function Dashboard() {
             <Timer />
             {/* Time display */}
             <Time />
+
+            
           </div>
           
           {/* Music panel */}

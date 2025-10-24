@@ -17,7 +17,6 @@ function Time() {
 
   return (
     <div className="time-widget">
-      <h3>Current Time</h3>
       <div className="time-display">{formatTime(currentTime)}</div>
     </div>
   );
