@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
 function Time() {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [time, setTime] = useState(new Date());
 
+  // update time every second
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
+    const clock = setInterval(() => {
+      setTime(new Date());
     }, 1000);
 
-    return () => clearInterval(timer);
+    // cleanup
+    return () => clearInterval(clock);
   }, []);
 
-  const formatTime = (date) => {
+  // show time in HH:MM format
+  const getTimeString = (date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
   return (
     <div className="time-widget">
-      <div className="time-display">{formatTime(currentTime)}</div>
+      <div className="time-display">{getTimeString(time)}</div>
     </div>
   );
 }

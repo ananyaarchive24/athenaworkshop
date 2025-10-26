@@ -1,10 +1,11 @@
 import React from 'react';
+// wanted to create a theme switcher think where the user can decide the themes, but didnt get enough time, and it didnt work the first time i tried so maybe later.
 
 function SwitchThemes ({ currentTheme, onThemeChange }) {
   const themes = [
-    { id: 'default', name: 'Midnight', color: '#00A3FF' },
-    { id: 'cyberpunk', name: 'Cyberpunk', color: '#00FF88' },
-    { id: 'crimson', name: 'Crimson', color: '#FF1744' }
+    //{ id: 'default', name: 'Midnight', color: '#00A3FF' },
+    //{ id: 'cyberpunk', name: 'Cyberpunk', color: '#00FF88' },
+   // { id: 'crimson', name: 'Hacker', color: '#FF1744' }
   ];
 
   return (
@@ -13,12 +14,8 @@ function SwitchThemes ({ currentTheme, onThemeChange }) {
       <div className="theme-buttons">
         {themes.map(theme => (
           <button
-            key={theme.id}
-            className={`theme-btn ${currentTheme === theme.id ? 'active' : ''}`}
-            onClick={() => onThemeChange(theme.id)}
-            style={{ '--theme-color': theme.color }}
           >
-            {theme.name}
+           
           </button>
         ))}
       </div>

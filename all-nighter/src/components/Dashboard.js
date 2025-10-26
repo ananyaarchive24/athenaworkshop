@@ -10,37 +10,37 @@ import Music from './Music';
 function Dashboard() {
   return (
     <div className="dashboard">
-      {/* Header at the top */}
+      {/* heading */}
       <Header />
       
       
       <div className="dashboard-grid">
-        {/* Left column */}
+        {/* the left column will hv */}
         <div className="left-column">
-          {/* Guides panel */}
+          {/* the 4 guides */}
           <Guides />
-          {/* Todo list */}
+          {/* a to do list */}
           <Todo />
         </div>
         
-        {/* Right column */}  
+        {/* right col */}  
         <div className="right-column">
-          {/* Activity log */}
+          {/* energy drink counter (as of now) */}
           <ActivityLog />
           
           <div className="widgets-row">
-            {/* Timer + Time widgets row */}
+            {/* time + timer */}
           
-          
-            {/* Timer */}
-            <Timer />
-            {/* Time display */}
+          {/* time */}
             <Time />
+            {/* timer */}
+            <Timer />
+            
 
             
           </div>
           
-          {/* Music panel */}
+          {/* embedded playlists */}
             <Music />
 
         </div>

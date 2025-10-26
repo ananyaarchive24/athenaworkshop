@@ -1,49 +1,50 @@
 import React, { useState } from 'react';
 
 function ActivityLog(){
-    //energy drinks
-  const [energyDrinks, setEnergyDrinks] = useState(0); //these are energy drink counters
-  const [isPulsing, setIsPulsing] = useState(false); 
+  // track energy drinks count
+  const [drinkCount, setDrinkCount] = useState(0);
+  // animation state
+  const [animateNumber, setAnimateNumber] = useState(false);
 
-  const increaseDrinks = () => {
-    setEnergyDrinks(energyDrinks + 1);
-    setIsPulsing(true);
-    setTimeout(() => setIsPulsing(false), 600);
+  // when user adds a drink
+  const addDrink = () => {
+    setDrinkCount(drinkCount + 1);
+    setAnimateNumber(true);
+    // stop animation after it plays
+    setTimeout(() => setAnimateNumber(false), 600);
   };
 
-  const decreaseDrinks = () => {
-    if (energyDrinks > 0) {
-      setEnergyDrinks(energyDrinks - 1);
-      setIsPulsing(true); 
-      setTimeout(() => setIsPulsing(false), 600); 
-
+  // when user removes a drink
+  const removeDrink = () => {
+    if (drinkCount > 0) {
+      setDrinkCount(drinkCount - 1);
+      setAnimateNumber(true);
+      setTimeout(() => setAnimateNumber(false), 600);
     }
+    // else do nothing if already at 0
   };
 
+  // these will be used later
+  //const [waterReminders, setWaterReminders] = useState(0); for thr hydration popups
+  //const [workTime, setWorkTime] = useState(0); to take a strict break, the person should not be able to dismiss the specific timer based popup
+  //const [doneTasks, setDoneTasks] = useState(0); to show tasks that are done in the activity log, but lot of logic required so will do later
 
-
-
-  const [hydrationChecks, setHydrationChecks] = useState(0); //build this later when we schedule the poopups for hydration check ins
-  const [deepWorkHours, setDeepWorkHours] = useState(0); //shows how many hours u worked
-  const [tasksCompleted, setTasksCompleted] = useState(0); //to s
-
-
-
-
-
-return(
+  return(
     <div className="activity-log">
-      <h1 className="activitylog-header">How it's going - your log</h1>
+      <h1 className="activitylog-header">Log</h1>
       
       <div className="log-item">
         <div className="log-label">Energy Drinks:</div>
         <div className="drink-counter">
-          <button onClick={decreaseDrinks}>-</button>
-            <span className={`count ${isPulsing ? 'pulse' : ''}`}>{energyDrinks}</span>
-          <button onClick={increaseDrinks}>+</button>
+          <button onClick={removeDrink}>-</button>
+          <span className={`count ${animateNumber ? 'pulse' : ''}`}>
+            {drinkCount}
+          </span>
+          <button onClick={addDrink}>+</button>
         </div>
       </div>
     </div>
-);
+  );
 }
+
 export default ActivityLog;

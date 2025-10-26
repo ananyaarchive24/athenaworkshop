@@ -3,7 +3,6 @@ import React, {useState} from "react";
 function Todo(){
     const [tasks, setTasks] = useState([]) //empty array
     const [newTask, setNewTask] = useState(''); //storing the value of the new task
-    const [activeTask, setActiveTask] = useState(null); //nothing is active first, but this is a function to update activeTask
 
         // Function to delete a task
             const deleteTask = (taskId) => {
@@ -54,7 +53,7 @@ function Todo(){
 
     return(
         <div className="todo-widget">
-            <h3>Goals for this all-nighter</h3>
+            <h3>your list for this all-nighter ✅</h3>
             <div className="task-input">
                 <input
                     type="text"

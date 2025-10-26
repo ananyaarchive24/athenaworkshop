@@ -1,57 +1,53 @@
 import React, { useState, useEffect } from 'react';
 
-
 function Timer(){
-    const [timeLeft, setTimeLeft] = useState(90 * 60); // 90 minutes in seconds
-    const [isRunning, setIsRunning] = useState(false);
+  const [secondsRemaining, setSecondsRemaining] = useState(90 * 60);
+  const [timerActive, setTimerActive] = useState(false);
 
-        // to display it in minutes and seconds, not just seconds
-        const formatTime = (seconds) => {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-        };
+  // convert seconds to MM:SS format
+  const getTimeDisplay = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
 
-        // start
-        const startTimer = () => {
-        setIsRunning(true);
-        };
+  const beginTimer = () => {
+    setTimerActive(true);
+  };
 
-        // pause  
-        const pauseTimer = () => {
-        setIsRunning(false);
-        };
+  const stopTimer = () => {
+    setTimerActive(false);
+  };
 
-        // reset
-        const resetTimer = () => {
-        setIsRunning(false);
-        setTimeLeft(90 * 60);
-        };
+  const restartTimer = () => {
+    setTimerActive(false);
+    setSecondsRemaining(90 * 60);
+  };
 
-        // the timer to actually work - countdown
-        useEffect(() => {
-            let interval;
-            
-            if (isRunning && timeLeft > 0) {
-                interval = setInterval(() => {
-                setTimeLeft(time => time - 1);
-                }, 1000);
-            }
-            
-            return () => clearInterval(interval);
-        }, [isRunning, timeLeft]);
+  // handle the countdown
+  useEffect(() => {
+    let countdown;
+    
+    if (timerActive && secondsRemaining > 0) {
+      countdown = setInterval(() => {
+        setSecondsRemaining(prev => prev - 1);
+      }, 1000);
+    }
+    
+    return () => clearInterval(countdown);
+  }, [timerActive, secondsRemaining]);
 
-    return(
-        <div className="timer-widget">
-            <h3>Deep Work Block</h3>
-            <div className = "timer-display"> {formatTime(timeLeft)}</div>
-            <div className="timer-controls">
-                <button onClick={startTimer}>Start</button>
-                <button onClick={resetTimer}>Reset</button>
-                <button onClick={pauseTimer}>Pause</button>
-            </div>
-        </div>
-    )
+  return(
+    <div className="timer-widget">
+      <h3>Deep Work Block</h3>
+      <div className="timer-display">{getTimeDisplay(secondsRemaining)}</div>
+      <div className="timer-controls">
+        <button onClick={beginTimer}>Start</button>
+        <button onClick={restartTimer}>Reset</button>
+        <button onClick={stopTimer}>Pause</button>
+      </div>
+    </div>
+  )
 }
 
 export default Timer;

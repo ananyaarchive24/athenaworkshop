@@ -1,56 +1,23 @@
-:root {
-  --bg-primary: #0A0A0F;
-  --bg-secondary: #121218;
-  --bg-tertiary: #1A1A23;
-  --text-primary: #E0E0F0;
-  --text-secondary: #8C8CA1;
-  --accent-blue: #00A3FF;
-  --accent-green: #00FF88;
-  --accent-purple: #AA00FF;
-  --accent-amber: #FFB300;
-  --accent-crimson: #FF1744;
-}
-
-/* CYBERPUNK THEME VARIABLES */
-.theme-cyberpunk {
-  /* Cyberpunk Neon Colors */
-  --accent-blue: #00FF88;       /* Matrix Green */
-  --accent-green: #00FF88;      /* Same green for consistency */
-  --accent-purple: #AA00FF;     /* Electric Purple */
-  --accent-amber: #FFB300;      /* Warning Amber */
-  --accent-crimson: #FF1744;    /* Error Red */
-  
-  /* Backgrounds - Dark with blue undertone */
-  --bg-primary: #0A0F1A;
-  --bg-secondary: #121A2A; 
-  --bg-tertiary: #1A243A;
-  
-  /* Text */
-  --text-primary: #E0FFEE;
-  --text-secondary: #88CCAA;
-  
-  /* Glow Effects */
-  --accent-glow: rgba(0, 255, 136, 0.6);
-  --border-glow: rgba(0, 255, 136, 0.3);
-  --theme-color: #00FF88; /* For theme switcher */
-}
-
 /* Dashboard Grid */
-.dashboard {
-  background-color: var(--bg-primary); /* Using CSS variable now */
-  color: var(--text-primary); /* Using CSS variable now */
-}
 
-.main-header{
+.main-header {
   text-align: center;
   padding: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+.dashboard {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  padding: 20px ;
+  padding: 20px;
 }
 
 /* for breathing space btw all the components */
@@ -86,12 +53,12 @@
 }
 
 .modal-content {
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   width: 80%;
   max-width: 600px;
   border-radius: 12px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
-  box-shadow: 0 0 30px rgba(0, 163, 255, 0.4);
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); /* AI suggestion */
 }
 
 .modal-header {
@@ -99,26 +66,26 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid var(--bg-tertiary);
+  border-bottom: 1px solid #333333;
 }
 
 .modal-body {
   padding: 20px;
   max-height: 60vh;
   overflow-y: auto;
+  color: #ffffff;
 }
 
-/* FIX: Make guides look like cards in a grid */
 .guides-list {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2x2 grid */
+  grid-template-columns: 1fr 1fr; 
   gap: 15px;
 }
 
 .guide-item {
-  background: var(--bg-secondary); /* Card background */
-  border-radius: 12px; /* Rounded corners */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  background: #1a1a1a; 
+  border-radius: 12px; 
+  border: 1px solid #333333; 
 }
 
 .guide-header {
@@ -126,27 +93,27 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: #ffffff;
 }
 
 .guide-header:hover {
-  background: rgba(255, 255, 255, 0.05); /* Hover glow */
+  background: #333333; /* it glowwws */
 }
-
 
 .guides-widget h3 {
   text-align: center;
   margin-bottom: 25px;
   font-size: 1.3rem;
+  color: #ffffff;
 }
-
-
 
 /* basic grid for the embedded playlists */
 .music-panel {
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
+  border: 1px solid #ffffff;
+  text-align: center;
 }
 
 .playlist-carousel {
@@ -157,9 +124,9 @@
 }
 
 .arrow-btn {
-  background: var(--bg-tertiary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
+  background: #333333;
+  border: 1px solid #666666;
+  color: #ffffff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -169,8 +136,8 @@
 }
 
 .arrow-btn:hover {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background: #666666;
+  border-color: #ffffff;
 }
 
 .playlist-display {
@@ -193,20 +160,21 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--text-secondary);
+  background: #666666;
   transition: all 0.3s ease;
 }
 
 .dot.active {
-  background: var(--accent-blue);
+  background: #ffffff;
   transform: scale(1.2);
 }
 
-/* to do list to make it less ugly */
+/* to do list, making it less ugly */
 .todo-widget h3 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.3rem;
+  color: #ffffff;
 }
 
 .task-input {
@@ -218,21 +186,21 @@
 .task-input input {
   flex: 1;
   padding: 12px 15px;
-  background: var(--bg-tertiary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #333333;
+  border: 1px solid #666666;
   border-radius: 8px;
-  color: var(--text-primary);
+  color: #ffffff;
   font-size: 14px;
 }
 
 .task-input input:focus {
   outline: none;
-  border-color: var(--accent-blue);
+  border-color: #ffffff;
 }
 
 .task-input button {
-  background: var(--accent-blue);
-  color: white;
+  background: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 8px;
   padding: 12px 20px;
@@ -242,7 +210,7 @@
 }
 
 .task-input button:hover {
-  background: #0088cc;
+  background: #cccccc;
   transform: translateY(-1px);
 }
 
@@ -258,14 +226,14 @@
   align-items: center;
   gap: 12px;
   padding: 15px;
-  background: var(--bg-tertiary);
+  background: #333333;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #666666;
   transition: all 0.3s ease;
 }
 
 .task:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: #999999;
 }
 
 /* Custom Checkbox */
@@ -278,6 +246,7 @@
 .task span {
   flex: 1;
   font-size: 14px;
+  color: #ffffff;
 }
 
 .task span.completed {
@@ -287,8 +256,8 @@
 
 .task button {
   background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--text-secondary);
+  color: #666666;
+  border: 1px solid #666666;
   border-radius: 6px;
   padding: 6px 12px;
   font-size: 12px;
@@ -297,23 +266,16 @@
 }
 
 .task button:hover {
-  color: var(--accent-crimson);
-  border-color: var(--accent-crimson);
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 /* activity log css */
-
-
-.activitylog-header{
-  font-size: 1.3rem;
-
-}
-
 .activitylog-header {
   text-align: center;
   margin-bottom: 25px;
   font-size: 1.3rem;
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 /* Energy Drinks - Cool Counter */
@@ -321,15 +283,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg-tertiary);
+  background: #333333;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #666666;
 }
 
 .log-label {
   font-size: 16px;
-  color: var(--text-secondary);
+  color: #cccccc;
 }
 
 .drink-counter {
@@ -339,9 +301,9 @@
 }
 
 .drink-counter button {
-  background: var(--accent-blue);
+  background: #ffffff;
   border: none;
-  color: white;
+  color: #000000;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -353,7 +315,7 @@
 
 .drink-counter button:hover {
   transform: scale(1.1);
-  background: #0088cc;
+  background: #cccccc;
 }
 
 .drink-counter button:active {
@@ -366,6 +328,7 @@
   min-width: 50px;
   text-align: center;
   transition: all 0.3s ease;
+  color: #ffffff;
 }
 
 /* Animation when number changes */
@@ -375,10 +338,9 @@
 
 @keyframes pulseGlow {
   0% { transform: scale(1); }
-  50% { transform: scale(1.2); color: var(--accent-blue); }
+  50% { transform: scale(1.2); color: #ffffff; }
   100% { transform: scale(1); }
 }
-
 
 /*timer*/
 .timer-widget {
@@ -388,7 +350,7 @@
 .timer-widget h3 {
   margin-bottom: 10px;
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #cccccc;
   font-weight: 500;
 }
 
@@ -398,6 +360,7 @@
   margin-bottom: 20px;
   font-variant-numeric: tabular-nums;
   letter-spacing: 2px;
+  color: #ffffff;
 }
 
 .timer-controls {
@@ -407,8 +370,8 @@
 }
 
 .timer-controls button {
-  background: var(--accent-blue);
-  color: white;
+  background: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 12px;
   padding: 10px 20px;
@@ -419,12 +382,14 @@
 }
 
 .timer-controls button:hover {
-  background: #0088cc;
+  background: #cccccc;
   transform: scale(1.05);
 }
 
 /* time */
-
+.time-widget {
+  text-align: center;
+}
 
 .time-display {
   font-size: 4.5rem;
@@ -432,110 +397,53 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: 1px;
   margin-top: 27px;
+  color: #ffffff;
 }
 
-/* everuthing is its own mini dashboard */
-
-
+/* everything is its own mini dashboard */
 .activity-log { 
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
+  border: 1px solid #ffffff;
 }
 
 .guides-widget{
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
+  border: 1px solid #ffffff;
 }
 
-
-
 .todo-widget {
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
-  min-height: 375px;
-  max-height: 375px
+  border: 1px solid #ffffff;
+  min-height: 375px; /* it needs to be max even when there r no tasks added so that the grid format is maintained properly */
+  max-height: 375px; 
 }
 
 .tasks:empty::after {
-  content: "Add tasks to begin your mission";
+  content: "get started by adding tasks. you got this :)";
   text-align: center;
-  color: var(--text-secondary);
+  color: #666666;
   font-style: italic;
   padding: 40px 20px;
   display: block;
 }
 
-
 .time-widget{
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
-  text-align: center
+  border: 1px solid #ffffff;
+  text-align: center;
 }
 
 .timer-widget{
-  background: var(--bg-secondary);
+  background: #1a1a1a;
   border-radius: 10px;
   padding: 10px;
-  border: 1px solid var(--text-primary); /* Using CSS variable now */
+  border: 1px solid #ffffff;
 }
-
-/* theme 2*/
-/* Cyberpunk Glow Effects */
-.theme-cyberpunk .timer-widget,
-.theme-cyberpunk .time-widget,
-.theme-cyberpunk .activity-log,
-.theme-cyberpunk .guides-widget,
-.theme-cyberpunk .music-panel,
-.theme-cyberpunk .todo-widget {
-  border: 1px solid var(--border-glow);
-  box-shadow: 0 0 15px var(--accent-glow);
-}
-
-.theme-cyberpunk .timer-controls button,
-.theme-cyberpunk .task-input button,
-.theme-cyberpunk .drink-counter button {
-  box-shadow: 0 0 10px var(--accent-glow);
-}
-
-.theme-cyberpunk .guide-header:hover {
-  box-shadow: 0 0 8px var(--accent-glow);
-}
-
-/* Theme Switcher */
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-.theme-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.theme-btn {
-  background: var(--bg-secondary);
-  border: 1px solid var(--theme-color);
-  color: var(--text-primary);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.theme-btn.active {
-  background: var(--theme-color);
-  color: var(--bg-primary);
-  box-shadow: 0 0 10px var(--theme-color);
-}
-

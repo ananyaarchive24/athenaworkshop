@@ -59,16 +59,16 @@ function Guides() {
 
         </div>
       </div>
-      {/* Guide Modal Window - appears when any guide is active */}
+      {/* will add the content later */}
             {activeGuide && (
             <div className="guide-modal">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h3>Guide Title Here</h3>
+                    <h3>title</h3>
                     <button className="close-btn" onClick={closeGuide}>×</button>
                 </div>
                 <div className="modal-body">
-                    <p>Guide content will go here for guide {activeGuide}</p>
+                    <p>CONTENT {activeGuide}</p>
                 </div>
                 </div>
             </div>
