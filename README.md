@@ -1,4 +1,5 @@
 # athenaworkshop
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
 
 i built this as my second project for athena.
 this is my first project with react, and i feel confident enought o build more complex apps in react now since i got the hang of it while building this project
